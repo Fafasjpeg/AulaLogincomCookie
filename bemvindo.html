@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo!</title>
+    <style>
+        body{
+            align-items: center;
+        }
+        .welcome-container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .welcome-container h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        .welcome-container p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px; /* Espaçamento entre os botões */
+            flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas pequenas */
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            min-width: 150px; /* Garante um tamanho mínimo para os botões */
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Estilo principal do botão */
+        .btn {
+            background-color: #28a745; /* Verde para o botão principal */
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        /* Estilo secundário do botão (para "Sair") */
+        .btn-secondary {
+            background-color: #6c757d; /* Cinza para o botão secundário */
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* Responsividade básica para telas menores */
+        @media (max-width: 600px) {
+            .welcome-container {
+                padding: 30px 20px;
+            }
+            .welcome-container h1 {
+                font-size: 2em;
+            }
+            .welcome-container p {
+                font-size: 1em;
+            }
+            .btn {
+                width: 100%; /* Botões ocupam largura total em telas pequenas */
+            }
+            .button-group {
+                flex-direction: column; /* Botões empilhados em telas pequenas */
+            }
+        }
+        .welcome-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+        }
+        .color-picker-group {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        input[type="color"] {
+            width: 80px;
+            height: 40px;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body bgcolor="{{cordefundo}}">
+    <center><div class="welcome-container" style="margin-top: 200px;">
+        <h1>Olá, {{user}}!</h1>
+        <p>Bem-vindo(a) ao nosso aplicativo. É um prazer ter você aqui.</p>
+
+        <form method="post">
+            <label>Escolha o tema de fundo:</label><br>
+            <input type="radio" id="claro" name="tema" value="claro" {% if tema == 'claro' %}checked{% endif %}>
+            <label for="claro">Claro</label>
+            <input type="radio" id="escuro" name="tema" value="escuro" {% if tema == 'escuro' %}checked{% endif %}>
+            <label for="escuro">Escuro</label>
+            <br><br>
+            <button type="submit">Salvar tema</button>
+        </form>
+        <hr>
+        <div class="button-group">
+            <a href="/esportes" class="btn">Esportes</a>
+            <a href="/entretenimento" class="btn">Entretenimento</a>
+            <a href="/lazer" class="btn">Lazer</a>
+            <a href="/logout" class="btn btn-secondary">Logout</a>
+        </div>
+    </div></center>
+
+</body>
+</html>
